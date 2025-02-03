@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "ipin-project"
+version = "0.1.0"
+description = ""
+authors = ["hajeong kim <happykhj67@naver.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.32.3"
+django = "~4.2"
+psycopg = { version = "3.1.*", extras = ["binary", "pool"] }
+django-countries = "^7.6.1"
+django-seed = "^0.3.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
