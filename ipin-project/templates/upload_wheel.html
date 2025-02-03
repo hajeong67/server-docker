@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Wheel File</title>
+</head>
+<body>
+    <h1>Upload a Wheel File</h1>
+
+    {% if wheel %}
+        <h2>Upload Successful!</h2>
+        <p><strong>Name:</strong> {{ wheel.name }}</p>
+        <p><strong>Version:</strong> {{ wheel.version }}</p>
+        <p><strong>Summary:</strong> {{ wheel.summary }}</p>
+        <p><strong>Author:</strong> {{ wheel.author }}</p>
+        <p><strong>License:</strong> {{ wheel.license }}</p>
+
+        {% if file_url %}
+            <p>
+                <a href="{{ file_url }}" download>
+                    <button type="button">Download Uploaded File</button>
+                </a>
+            </p>
+        {% endif %}
+
+        <a href=".">Upload Another File</a>
+    {% else %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+    {% endif %}
+</body>
+</html>
+
+
